@@ -90,7 +90,6 @@ function toggledCard(clickedCard) {
 
 function addFlippedCard(clickedCard) {
     flippedCard.push(clickedCard);
-    console.log(flippedCard);
 }
 
 function toggledCard(card) {
@@ -114,10 +113,9 @@ function checkMatch () {
       flippedCard = [];
     }, 1000);
   }
-}
-
-if (matched === 8) {
-  gameOver();
+  if (matched === 8) {
+    gameOver();
+  }
 }
 
 function addMove () {
@@ -145,8 +143,8 @@ function removeStar() {
 function startClock() {
   clockId = setInterval(() => {
     time++;
-    console.log(time);
     displayTime();
+    console.log(time);
   }, 1000);
 }
 
@@ -167,37 +165,22 @@ function stopClock(){
 }
 
 function toggleModal(){
-	const modal = document.querySelector('.modal_background');
+	const modal = document.querySelector('.modal__background');
 	modal.classList.toggle('hide');
-  modal.classList.toggle('show');
+  modalStats();
 }
-
-
 
 function modalStats() {
-    const timeStat = document.querySelector('.modal_time');
-    const clockTime = document.querySelector('.clock').innerHTML;
-    const movesStat = document.querySelector('.modal_moves');
-    const starsStat = document.querySelector('.modal_stars');
+    const timeStat = document.querySelector('.modal__time');
+    const clockTime = document.getElementById('.clock').innerHTML;
 
     timeStat.innerHTML = 'Time = ${clockTime}';
-    movesStat.innerHTML = 'Moves = ${moves}';
-    starsStat.innerHTML = 'Stars = ${stars}';
 }
 
-function getStars() {
-    stars = document.querySelectorAll('.stars li');
-    starCount = 3;
-    for (let star of stars) {
-        if (star.style.display !== 'none') {
-          starCount++;
-        }
-    }
-    console.log(starCount);
-    return starCount;
+function gameOver() {
+    stopClock();
+    toggleModal();
 }
-
-stars = getStars();
 
 function resetGame() {
   resetClockAndTime();
@@ -207,11 +190,11 @@ function resetGame() {
   startClock();
 }
 
-document.querySelector(".modal_cancel").addEventListener("click", () => {
+document.querySelector(".modal__cancel").addEventListener("click", () => {
   toggleModal("hide");
 });
 
-document.querySelector(".modal_replay").addEventListener("click", () => {
+document.querySelector(".modal__replay").addEventListener("click", () => {
   toggleModal("hide");
   shuffleDeck();
 });
@@ -236,13 +219,6 @@ function resetStars() {
   for (star of starList) {
     star.style.display = 'inline';
   }
-}
-
-function gameOver() {
-    stopClock();
-    modalStats();
-    toggleModal();
-    resetCards();
 }
 
 function resetCards() {
