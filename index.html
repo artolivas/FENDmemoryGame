@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Matching Game</title>
     <meta name="description" content="">
+    <!-- view port -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
@@ -16,17 +18,22 @@
         </header>
 
         <section class="score-panel">
-
-          <!-- Clock -->
-          <span class="clock">0:00</span>
-
+        <!-- New clock element -->
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
+        		<li>
+                    <i class="fa fa-star"></i>
+                </li>
+        		<li>
+                    <i class="fa fa-star"></i>
+                </li>
+        		<li>
+                    <i class="fa fa-star"></i>
+                </li>
         	</ul>
 
         	<span class="moves">0</span> Moves
+            <!-- new clock element -->
+            <span class="clock">0:00</span>
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>
@@ -85,23 +92,26 @@
         </ul>
     </div>
 
+    <div class="modal_background hide">
+        <div class="modal_body">
+            <div class="modal_heading">
+                <h1 class="modal_title">Stats</h1>
+                <span class="modal_close">x</span>
+            </div>
+
+            <div class="modal_stats">
+                <span class="modal_time">Time =</span>
+                <span class="modal_stars">Stars =</span>
+                <span class="modal_moves">Moves =</span>
+            </div>
+
+            <div class="modal_buttons">
+                <button class="modal_button modal_cancel">Cancel</button>
+                <button class="modal_button modal_replay">Replay</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/app.js"></script>
 </body>
-    <div class="modal__background hide" >
-        <div class="modal__body">
-		    <div class="modal__heading">
-			      <h1 class="modal__title">You Won!</h1>
-			      <span class="modal__close">x</span>
-		    </div>
-		    <div class="modal__stats">
-			      <span class="modal__time">Time:</span>
-			      <span class="modal__stars">Stars:</span>
-			      <span class="modal__moves">Moves:</span>
-		    </div>
-		    <div class="modal__buttons">
-			    <button class="modal__button modal__cancel">Cancel</button>
-			    <button class="modal__button modal__replay">Replay</button>
-		  </div>
-      </div>
-    </div>
 </html>
